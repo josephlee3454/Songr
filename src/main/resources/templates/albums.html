@@ -1,0 +1,43 @@
+<!doctype html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Albums</title>
+    <link rel="stylesheet" href="/style.css">
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+            rel="stylesheet"
+    />
+
+</head>
+<body>
+<h1>ALBUMS</h1>
+
+<section>
+    <div th:each="data : ${albumList}">
+        <div class="card">
+            <h4 th:text="${data.artist}">Artist</h4>
+            <img th:src="${data.imgUrl}" alt="img" width="300" height="300">
+            <p th:text="'Song Count: ' + ${data.songCount} + ' songs'">Song Count</p>
+            <p th:text="'Album Length: ' + ${data.songLength} + ' min'">length</p>
+        </div>
+
+    </div>
+</section>
+
+
+</body>
+</html>
