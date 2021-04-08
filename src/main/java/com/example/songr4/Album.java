@@ -75,6 +75,11 @@ import javax.persistence.Id;
         }
 
 
+        public long getId() {
+            return id;
+        }
+
+
 
     }
 

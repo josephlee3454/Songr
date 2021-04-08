@@ -27,13 +27,33 @@
 <h1>ALBUMS</h1>
 
 <section>
-    <div th:each="data : ${albumList}">
+    <div th:each="data : ${albumsList}">
         <div class="card">
             <h4 th:text="${data.artist}">Artist</h4>
             <img th:src="${data.imgUrl}" alt="img" width="300" height="300">
             <p th:text="'Song Count: ' + ${data.songCount} + ' songs'">Song Count</p>
             <p th:text="'Album Length: ' + ${data.songLength} + ' min'">length</p>
         </div>
+        <form th:action="'/albums/' + ${data.getId()}" method="POST">
+            <input type="hidden" name="albumId" th:value="${data.getId()}">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete Album">
+        </form>
+<!--        <form th:action="'/albums/' + ${data.id}'" method="POST">-->
+<!--            <input type="submit" value="Delete Album">-->
+<!--        </form>-->
+
+    </div>
+    <div>
+        <form action="/albums" method="POST">
+            <Legend><h2>Add New Albums Here: </h2></Legend>
+            Title <input type="text" name="title">
+            Artist <input type="text" name="artist">
+            Number of songs in the albums <input type="number" name="songCount">
+            Length in seconds <input type="String" name="songLength">
+            ImageUrl <input type="text" name="imgUrl">
+            <input type="submit">
+        </form>
 
     </div>
 </section>
