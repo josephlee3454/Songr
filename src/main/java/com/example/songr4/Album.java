@@ -1,9 +1,6 @@
 package com.example.songr4;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 //step 1 give model a entity
 // step 2 Give your class a id
@@ -18,8 +15,12 @@ import javax.persistence.Id;
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         long id;
+        @Column(columnDefinition = "text")
+        public String title;
+        @Lob
+        public String aString;
 
-        String title;
+//        String title;
         String artist;
         int songCount;
         String songLength;
